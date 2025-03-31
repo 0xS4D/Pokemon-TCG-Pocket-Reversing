@@ -1,0 +1,37 @@
+{
+  "name": "frida-jp.pokemon.pokemontcgp",
+  "version": "1.0.0",
+  "description": "Frida agent for Pokémon TCGP",
+  "scripts": {
+    "spawn": "frida -U -n 'Pokémon TCGP' -l dist/agent.js --realm=emulated",
+    "build": "frida-compile src/i.ts -o dist/agent.js -c",
+    "watch": "frida-compile src/i.ts -o dist/agent.js -w"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "lf"
+  },
+  "keywords": [
+    "frida",
+    "frida-il2cpp-bridge",
+    "lgl",
+    "modding",
+    "android",
+    "modmenu"
+  ],
+  "author": "maarsalien",
+  "license": "MIT",
+  "devDependencies": {
+    "frida-compile": "^16.4.2",
+    "frida-il2cpp-bridge": "^0.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {}
+}

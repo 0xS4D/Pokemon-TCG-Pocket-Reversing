@@ -1,30 +1,89 @@
-# Pokemon-TCG-Pocket-Reversing
-This repository contains everything I've found so far in an attempt to reverse-engineer Pokémon TCG Pocket. My ultimate goal is to capture the packets being sent, as shown in this video: https://www.youtube.com/watch?v=oJhGaOrd1qU
+# 📦 PkmTCGPocket Packet Capture (Experimental)
 
-I've already tried SSL pinning with existing Frida scripts, conducted a static analysis with MobSF, performed a memory dump with Fridump, and experimented with most MITM applications, including Wireshark. However, I'm stuck without bypassing SSL pinning.
+**UPDATE – Capturing Packets from PkmTCGPocket**
 
-I'm not sure how to find more information using the available Unity files. I tried working with the files on hand (libil2cpp.so) but with no success.
+I’ve been experimenting with bypassing some of the security checks in _PkmTCGPocket_ in an attempt to inspect the network traffic, inspired by RustyWolf’s video. This repo documents my progress and shares the tools I’ve built so far.
 
-#UPDATE:
+> ⚠️ **DISCLAIMER:**  
+> I haven’t managed to bypass SSL pinning or tamper with encrypted traffic directly. What I _have_ accomplished is capturing packets **after** integrity checks are passed – so this is purely for **observational** purposes.  
+> I'm not attempting to create private servers or exploit the game maliciously.
 
-Many people add me on Discord for the same reason... so to avoid repeating myself all the time, this message might help…
+---
 
-This is everything I’ve managed so far:
-The global-metadata.dat is obfuscated. Instead of decrypting it step by step, what I did was create a script to dump it directly from memory by searching for headers once the entire deobfuscation process had finished.
-On iOS, il2cpp.so is called UnityFramework. I was able to obtain both global-metadata.dat files from iOS and Android.
-Once I got the dummy.dlls, I noticed differences. On iOS, typical Unity functions are "stripped"; the obfuscation on iOS is stronger.
-The only exported module on iOS is CRIWARECE8DBD94.
-I tried using frida-il2cpp-bridge to hook Unity functions on Android and couldn’t get it working, until someone on the server (UnityPy) recommended only hooking the app after it opens — that is, open the app and then hook it with Frida. I was able to do it. (Someone implemented a bash script to open the app, get the process ID, and hook it by PID — all automatic and fast — so it turned out to be unnecessary to overcomplicate it.)
-While analyzing the dummy I found Ceal. It’s not the entire SSL pinning. I think it's only when a first SSL Pinning is running. Several requests are made, not just with Ceal. There’s another request I haven’t been able to capture. Someone managed to get all the .proto files needed to read the traffic over gRPC. But if we can’t bypass the pinning, we can’t move forward either. There are other interesting things in the dummy that others found (sometimes certain hooks crash the app, and this is why): Lettuce.Infrastructure.Rainbow. It contains a function called Chs, which you can read the arguments of using dnSpy:
+## 🧠 What This Does
 
-Chs(ref bool debugger, ref bool emulator, ref bool frida, ref bool jailbreakAndRooted, ref bool modifyBinary, ref bool modifyFirePoint, ref bool modifyFunction, ref bool vspaceApp, ref bool modifyMemory)
-It also returns a boolean. That prevents the app from crashing many times. (In my testing, it never crashed.)
+- Hooks into the app using **Frida**, after the app passes its integrity checks.
+- Intercepts communication by hooking into both a `sender` and an `observer`.
+- Captures packet data and forwards it through a **WebSocket server**.
+- Visualizes the data in a **frontend app made with Vite**.
+- All code is in **Spanish/English mix** (Spanish is my native language), and still quite messy – but functional.
 
-Maybe it gets triggered when you try to modify other things.
+---
 
-Il2Cpp.domain.assembly("Lettuce.Infrastructure.Rainbow").image.tryClass("Foundation.Rainbow.Runtime.Rainbow").method("Chs").implementation = function(...a) {
-}
+## 📸 Visual Reference
 
-idkwhatimsaying words: this works until you're past the country selection screen — idk what comes after.
+Check the diagram where I theorize which security mechanisms are being used.  
+Also, there’s a video showing the tool in action.
 
-Then I tried hooking things like ProfileV1, but that’s where I stopped. I couldn’t figure out which functions are making the gRPC requests or how they’re being handled
+<video src="media/demo.mp4" controls width="30%"></video>
+
+---
+
+<img src="media/checks.png" alt="Security checks diagram" width="30%" />
+
+---
+
+## 🧪 How to Use It
+
+Here’s the step-by-step workflow to replicate the packet capture:
+
+1. 🖥 **Start the frontend**  
+   Run the Vite app locally to prepare for WebSocket data display.
+
+2. 📱 **Start Frida server**  
+   On your device/emulator, launch the Frida server (make sure it’s properly rooted or hooked).
+
+3. 🕹 **Launch the PkmTCGPocket app**  
+   Wait until the **"Tap to Start"** screen appears.
+
+4. 🧬 **Start the WebSocket server**  
+   This injects the `agent.js` into the app via Frida and starts relaying traffic.
+
+5. 🔄 **Reload the frontend page**  
+   This will trigger the WebSocket connection and prepare it to receive data.
+
+6. 👉 **Tap to Start**  
+   Once you interact with the app, packet data should begin to stream in real-time.
+
+7. 🧾 **Observe the traffic**  
+   You can now inspect the packets, including the request that returns your card collection.
+
+---
+
+## 🎯 Why I Did This
+
+My only intention was to view my card data and (eventually) build a **Mew tracker**.  
+This tool is for analysis and experimentation only — _not_ for cheating or exploit hunting.
+
+> If you’re a developer and have cleaner or better approaches, **pull requests are very welcome**!
+
+---
+
+## ⚙️ Requirements
+
+- [Frida](https://frida.re/) running on device/emulator
+- Node.js (For the frontend)
+- Python (For the WebSocket server)
+- Basic understanding of app hooking / reverse engineering
+
+---
+
+## 💬 Final Thoughts
+
+This project is still very early-stage and experimental.  
+I don’t fully understand the internal flow of the app or the exact functions being triggered.  
+But I hope this helps others explore the possibilities of analyzing PkmTCGPocket.
+
+Let’s see what third-party tools the community can create!
+
+— _Saludos!_ 👋
