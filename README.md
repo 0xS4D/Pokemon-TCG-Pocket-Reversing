@@ -44,9 +44,14 @@ Here’s the step-by-step workflow to replicate the packet capture:
    On your device/emulator, launch the Frida server (make sure it’s properly rooted or hooked).
 
 3. 🕹 **Launch the PkmTCGPocket app**  
-   Wait until the **"Tap to Start"** screen appears.
+   Just run the app.
 
-4. 🧬 **Start the WebSocket server**  
+4. 🧬 **Start the WebSocket server**
+
+   ```bash
+   python frida_server.py
+   ```
+
    This injects the `agent.js` into the app via Frida and starts relaying traffic.
 
 5. 🔄 **Reload the frontend page**  
