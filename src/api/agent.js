@@ -1,40 +1,37 @@
 📦
-1226 /src/i.js.map
-1684 /src/i.js
+1397 /src/i.js.map
+1463 /src/i.js
 105701 /node_modules/frida-il2cpp-bridge/dist/index.js.map
 143555 /node_modules/frida-il2cpp-bridge/dist/index.js
 ↻ frida-il2cpp-bridge
 ✄
-{"version":3,"file":"i.js","sourceRoot":"C:/Proyectos/Pokemon/Android/","sources":["src/i.ts"],"names":[],"mappings":"AAAA,cAAc;AACd,OAAO,qBAAqB,CAAC;AAE7B,MAAM,CAAC,OAAO,CAAC,GAAG,EAAE;IAClB,MAAM,WAAW,GAAG,MAAM,CAAC,MAAM,CAAC,QAAQ,CAAC,cAAc,CAAC,CAAC,KAAK,CAAC;IAEjE,MAAM,oBAAoB,GAAG,WAAW,CAAC,KAAK,CAAC,oCAAoC,CAAC,CAAC,MAAM,CAAC,OAAO,CAAC,CAAC;IACrG,MAAM,aAAa,GAAG,WAAW,CAAC,KAAK,CAAC,sCAAsC,CAAC,CAAC;IAEhF,mBAAmB;IAEnB,oBAAoB,CAAC,cAAc,GAAG,UAEpC,UAAyB,EACzB,UAAyB,EACzB,OAAsB,EACtB,SAAwB,EACxB,cAA6B;QAE7B,+CAA+C;;QAE/C,qDAAqD;QAErD,MAAM,WAAW,GAAG,MAAA,MAAA,OAAO,aAAP,OAAO,uBAAP,OAAO,CAAE,MAAM,CAAC,UAAU,CAAC,0CAAE,MAAM,EAAE,0CAAE,QAAQ,EAAE,CAAC;QAEtE,IAAI,WAAW,KAAK,OAAO,EAAE;YAC3B,iDAAiD;YACjD,IAAI,CAAC,EAAE,OAAO,EAAE,WAAW,EAAE,IAAI,EAAE,SAAS,EAAE,CAAC,CAAC;SACjD;IACH,CAAC,CAAC;IAEF,uBAAuB;IAEvB,aAAa,CAAC,MAAM,CAAC,uBAAuB,CAAC,CAAC,cAAc,GAAG,UAE7D,SAAwB,EACxB,CAAgB;QAEhB,oDAAoD;QAEpD,sEAAsE;QACtE,0EAA0E;QAE1E,MAAM,WAAW,GAAG,SAAS,CAAC,KAAK,CAAC,QAAQ,CAAC,CAAC,KAAsB,CAAC;QACrE,MAAM,WAAW,GAAG,WAAW,CAAC,MAAM,CAAC,UAAU,CAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE,CAAC;QAEvE,IAAI,WAAW,KAAK,OAAO,EAAE;YAC3B,iDAAiD;YACjD,IAAI,CAAC,EAAE,OAAO,EAAE,WAAW,EAAE,IAAI,EAAE,UAAU,EAAE,CAAC,CAAC;SAClD;IACH,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC"}
+{"version":3,"file":"i.js","sourceRoot":"C:/Proyectos/Pokemon/Android/frida/","sources":["src/i.ts"],"names":[],"mappings":"AAAA,cAAc;AACd,OAAO,qBAAqB,CAAC;AAE7B,MAAM,CAAC,OAAO,CAAC,GAAG,EAAE;IAClB,MAAM,WAAW,GAAG,MAAM,CAAC,MAAM,CAAC,QAAQ,CAAC,cAAc,CAAC,CAAC,KAAK,CAAC;IAEjE,MAAM,oBAAoB,GAAG,WAAW,CAAC,KAAK,CAAC,oCAAoC,CAAC,CAAC;IACrF,MAAM,aAAa,GAAG,WAAW,CAAC,KAAK,CAAC,sCAAsC,CAAC,CAAC;IAEhF,mBAAmB;IAEnB,oBAAoB,CAAC,MAAM,CAAC,OAAO,CAAC,CAAC,cAAc,GAAG,UAEpD,UAAyB,EACzB,SAAwB,EACxB,OAAsB,EACtB,QAAuB,EACvB,cAA6B;;QAE7B,MAAM,WAAW,GAAG,MAAA,MAAA,OAAO,aAAP,OAAO,uBAAP,OAAO,CAAE,MAAM,CAAC,UAAU,CAAC,0CAAE,MAAM,EAAE,0CAAE,QAAQ,EAAE,CAAC;QAEtE,IAAI,WAAW,KAAK,OAAO,EAAE;YAC3B,IAAI,CAAC,EAAE,OAAO,EAAE,WAAW,EAAE,IAAI,EAAE,SAAS,EAAE,CAAC,CAAC;SACjD;QAED,MAAM,MAAM,GAAG,IAAI,CAAC,MAAM,CAAC,OAAO,CAAC,CAAC,MAAM,CAAC,UAAU,EAAE,SAAS,EAAE,OAAO,EAAE,QAAQ,EAAE,cAAc,CAAC,CAAC;QACrG,OAAO,MAAM,CAAC;IAChB,CAAC,CAAC;IAEF,uBAAuB;IAEvB,aAAa,CAAC,MAAM,CAAC,uBAAuB,CAAC,CAAC,cAAc,GAAG,UAE7D,SAAwB,EACxB,WAA0B;QAE1B,MAAM,WAAW,GAAG,SAAS,CAAC,KAAK,CAAC,QAAQ,CAAC,CAAC,KAAsB,CAAC;QACrE,MAAM,WAAW,GAAG,WAAW,CAAC,MAAM,CAAC,UAAU,CAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE,CAAC;QAEvE,IAAI,WAAW,KAAK,OAAO,EAAE;YAC3B,IAAI,CAAC,EAAE,OAAO,EAAE,WAAW,EAAE,IAAI,EAAE,UAAU,EAAE,CAAC,CAAC;SAClD;QAED,MAAM,MAAM,GAAG,IAAI,CAAC,MAAM,CAAC,uBAAuB,CAAC,CAAC,MAAM,CAAC,SAAS,EAAE,WAAW,CAAC,CAAC;QACnF,OAAO,MAAM,CAAC;IAChB,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC"}
 ✄
 // @ts-nocheck
 import 'frida-il2cpp-bridge';
 Il2Cpp.perform(() => {
     const TakashoCore = Il2Cpp.domain.assembly('Takasho.Core').image;
-    const requestSentEventCtor = TakashoCore.class('Takasho.Requester/RequestSentEvent').method('.ctor');
+    const requestSentEventCtor = TakashoCore.class('Takasho.Requester/RequestSentEvent');
     const observerClass = TakashoCore.class('Takasho.Requester/ObserverCollection');
     /* SEND REQUESTS */
-    requestSentEventCtor.implementation = function (endpointId, _requestId, request, _playerId, requestOptions) {
-        // console.log('[📦] RequestSentEvent called');
+    requestSentEventCtor.method('.ctor').implementation = function (endpointId, requestId, request, playerId, requestOptions) {
         var _a, _b;
-        // console.log(`📌 Endpoint: ${endpointId.content}`);
         const stringified = (_b = (_a = request === null || request === void 0 ? void 0 : request.method('ToString')) === null || _a === void 0 ? void 0 : _a.invoke()) === null || _b === void 0 ? void 0 : _b.toString();
         if (stringified !== '"{ }"') {
-            //   console.log(`[🟢] Content: ${stringified}`);
             send({ content: stringified, type: 'request' });
         }
+        const result = this.method('.ctor').invoke(endpointId, requestId, request, playerId, requestOptions);
+        return result;
     };
     /* RECEIVE RESPONSES */
-    observerClass.method('RaiseResponseReceived').implementation = function (apiResult, _) {
-        // console.log('[📦] RaiseResponseReceived called');
-        // console.log(`📌 Endpoint: ${apiResult.field('endpointId').value}`);
-        // console.log(`Success?: ${apiResult.method('get_IsSuccess').invoke()}`);
+    observerClass.method('RaiseResponseReceived').implementation = function (apiResult, clientState) {
         const resultValue = apiResult.field('result').value;
         const stringified = resultValue.method('ToString').invoke().toString();
         if (stringified !== '"{ }"') {
-            //   console.log(`[🔴] Content: ${stringified}`);
             send({ content: stringified, type: 'response' });
         }
+        const result = this.method('RaiseResponseReceived').invoke(apiResult, clientState);
+        return result;
     };
 });
 ✄
